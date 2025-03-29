@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucket List</title>
+    <style>
+        #banner {
+            background-color: yellow;
+            padding: 10px;
+            border: 1px solid black;
+            width: fit-content;
+        }
+        #bucketList {
+            list-style-type: disc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="banner">
+        <h2>Hi there! I'm [Your Name]</h2>
+        <ul id="bucketList">
+            <li>Travel to Japan</li>
+            <li>Learn Python</li>
+            <li>Start a business</li>
+        </ul>
+    </div>
+
+    <input type="text" id="newItem" placeholder="New bucket list item">
+    <button onclick="addItem()">Add new item</button>
+    <button onclick="changeFont()">Change font family</button>
+    <button onclick="makeBold()">Make items bold</button>
+
+    <script>
+        function addItem() {
+            let input = document.getElementById("newItem").value;
+            if (input.trim() !== "") {
+                let li = document.createElement("li");
+                li.textContent = input;
+                document.getElementById("bucketList").appendChild(li);
+                document.getElementById("newItem").value = ""; // Clear input field
+            }
+        }
+
+        function changeFont() {
+            document.getElementById("bucketList").style.fontFamily = "Courier New, monospace";
+        }
+
+        function makeBold() {
+            let items = document.querySelectorAll("#bucketList li");
+            items.forEach(item => {
+                item.style.fontWeight = "bold";
+            });
+        }
+    </script>
+
+</body>
+</html>
